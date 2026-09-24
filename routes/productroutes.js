@@ -18,7 +18,7 @@ router.post('/products', auth, async (req, res) => {
 /* ================= READ ================= */
 
 // GET ALL
-router.get('/products', async (req, res) => {
+router.get('/products', auth, async (req, res) => {
   const products = await Product.find();
   res.json(products);
 });

@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema(
       //select: false  security
     },
 
+    refreshToken:{
+      type: String,
+      default: null
+    },
+
     otp: {
       type: Number,
       default: null

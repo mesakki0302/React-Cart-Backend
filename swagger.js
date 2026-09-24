@@ -13,3 +13,10 @@ const outputFile = './swagger-output.json'
 const endpointsFile = ['./server.js']
 
 swaggerautogen(outputFile,endpointsFile,doc)
+
+
+
+
+
+
+

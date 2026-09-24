@@ -68,21 +68,27 @@ const deleteCarts = async(req,res)=>{
     }
 }
 
-const totalCart = async (req,res)=>{
-    try{
-        
-      const totalcarts = await Carts.find()
+const totalCart = async (req, res) => {
+  try {
 
-      const total = totalcarts.reduce((sum,item)=>
-        (sum + item.price * item.quantity,0)
-      )
+    const totalcarts = await Carts.find();
 
-      res.json(total)
+    const total = totalcarts.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
 
-    }
-    catch(err){
-        res.status(500).json({message:err.message})
-    }
+    res.status(200).json({
+      total,
+    });
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: err.message,
+    });
+
+  }
 }
 
 module.exports = {addCarts, getCarts, deleteCarts, totalCart}
